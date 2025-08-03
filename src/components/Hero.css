@@ -58,7 +58,7 @@
 
 .hero-title {
   /* ADJUSTED: The clamp values are now smaller, reducing the overall font size */
-  font-size: clamp(1.8rem, 4vw + 1rem, 3.5rem);
+  font-size: clamp(1.4rem, 3vw + 1rem, 3.5rem);
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
