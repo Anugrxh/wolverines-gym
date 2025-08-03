@@ -1,0 +1,133 @@
+.training-types {
+  background: var(--black-2);
+  color: white;
+}
+
+.training-types .section-title {
+  color: white;
+}
+
+.training-types .section-title::after {
+  background: var(--gradient-primary);
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.training-card {
+  background: #2a2a2a;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.training-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(234, 166, 32, 0.3);
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.training-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(234, 166, 32, 0.9), rgba(243, 206, 77, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.training-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-overlay h3 {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.card-content {
+  padding: 35px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-description {
+  color: #e0e0e0;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-size: 1.05rem;
+  font-weight: 300;
+}
+
+.card-features {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.card-features li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+
+.feature-icon {
+  color: var(--harvest-gold);
+  font-weight: bold;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.card-content .btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .training-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .training-card {
+    margin: 0 10px;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .training-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}

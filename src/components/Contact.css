@@ -1,0 +1,239 @@
+.contact {
+  background: var(--black-2);
+  color: white;
+}
+
+.contact .section-title {
+  color: white;
+}
+
+.contact .section-title::after {
+  background: var(--gradient-primary);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.info-card {
+  background: #2a2a2a;
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.info-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--harvest-gold);
+  text-align: center;
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.benefit-icon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.benefit-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.benefit-item p {
+  color: #ccc;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contact-methods {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.contact-methods h3 {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: var(--harvest-gold);
+  text-align: center;
+}
+
+.method-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #333;
+  border-radius: 10px;
+}
+
+.method-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.method-item strong {
+  display: block;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.method-item p {
+  color: #ccc;
+  margin: 0;
+}
+
+.contact-form-container {
+  background: #2a2a2a;
+  padding: 40px;
+  border-radius: 20px;
+  height: fit-content;
+}
+
+.contact-form h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--harvest-gold);
+  text-align: center;
+}
+
+.success-message {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  background: #333;
+  border: 2px solid #444;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--harvest-gold);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group select option {
+  background: #333;
+  color: white;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-note {
+  font-size: 0.9rem;
+  color: #999;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .info-card,
+  .contact-form-container {
+    padding: 30px 20px;
+  }
+  
+  .benefits-list {
+    gap: 20px;
+  }
+  
+  .benefit-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .contact-methods {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-card,
+  .contact-form-container,
+  .contact-methods {
+    padding: 25px 15px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px;
+  }
+  
+  .submit-btn {
+    padding: 15px;
+  }
+}
