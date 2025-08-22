@@ -49,15 +49,15 @@ const Hero = () => {
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
-              <h3>500+</h3>
+              <h3>1000+</h3>
               <p>Happy Members</p>
             </div>
             <div className="stat-item">
-              <h3>10+</h3>
+              <h3>3+</h3>
               <p>Expert Trainers</p>
             </div>
             <div className="stat-item">
-              <h3>5</h3>
+              <h3>10+</h3>
               <p>Years Experience</p>
             </div>
             <div className="stat-item">
