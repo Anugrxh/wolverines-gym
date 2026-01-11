@@ -1,44 +1,8 @@
 import React from 'react';
+import { trainersData } from '../data/mockData';
 
 const Trainers = () => {
-  const trainers = [
-    {
-      id: 1,
-      name: 'Mike Johnson',
-      specialty: 'Strength & Conditioning',
-      experience: '8 Years',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      bio: 'Certified personal trainer specializing in strength training and muscle building.',
-      certifications: ['NASM-CPT', 'CSCS', 'Nutrition Specialist']
-    },
-    {
-      id: 2,
-      name: 'Sarah Williams',
-      specialty: 'Weight Loss & Cardio',
-      experience: '6 Years',
-      image: 'https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      bio: 'Expert in weight loss programs and cardiovascular fitness training.',
-      certifications: ['ACE-CPT', 'Weight Management', 'Group Fitness']
-    },
-    {
-      id: 3,
-      name: 'David Chen',
-      specialty: 'Functional Training',
-      experience: '7 Years',
-      image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      bio: 'Focuses on functional movement patterns and injury prevention.',
-      certifications: ['FMS', 'NASM-CES', 'Mobility Specialist']
-    },
-    {
-      id: 4,
-      name: 'Emma Rodriguez',
-      specialty: 'Yoga & Flexibility',
-      experience: '5 Years',
-      image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      bio: 'Certified yoga instructor with expertise in flexibility and mindfulness.',
-      certifications: ['RYT-500', 'Yin Yoga', 'Meditation Teacher']
-    }
-  ];
+  const trainers = trainersData;
 
   return (
     <section id="trainers" className="section bg-snow">

@@ -1,64 +1,8 @@
 import React from 'react';
+import { pricingData } from '../data/mockData';
 
 const Pricing = () => {
-  const pricingPlans = [
-    {
-      id: 1,
-      name: 'Basic',
-      price: 29,
-      period: 'month',
-      popular: false,
-      description: 'Perfect for beginners starting their fitness journey',
-      features: [
-        'Gym Access (6am - 10pm)',
-        'Basic Equipment Usage',
-        'Locker Room Access',
-        'Free Fitness Assessment',
-        'Mobile App Access',
-        'Community Support'
-      ],
-      buttonText: 'Get Started'
-    },
-    {
-      id: 2,
-      name: 'Premium',
-      price: 59,
-      period: 'month',
-      popular: true,
-      description: 'Most popular choice for serious fitness enthusiasts',
-      features: [
-        '24/7 Gym Access',
-        'All Equipment & Classes',
-        'Personal Training (2 sessions)',
-        'Nutrition Consultation',
-        'Guest Pass (2 per month)',
-        'Premium Mobile Features',
-        'Towel Service',
-        'Free Parking'
-      ],
-      buttonText: 'Most Popular'
-    },
-    {
-      id: 3,
-      name: 'Elite',
-      price: 99,
-      period: 'month',
-      popular: false,
-      description: 'Ultimate package for maximum results and luxury',
-      features: [
-        '24/7 VIP Gym Access',
-        'Unlimited Personal Training',
-        'Custom Meal Plans',
-        'Recovery & Spa Services',
-        'Unlimited Guest Passes',
-        'Priority Class Booking',
-        'Dedicated Locker',
-        'Concierge Service',
-        'Supplement Discounts'
-      ],
-      buttonText: 'Go Elite'
-    }
-  ];
+  const pricingPlans = pricingData;
 
   return (
     <section id="pricing" className="section bg-gray-50">

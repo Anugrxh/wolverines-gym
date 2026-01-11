@@ -1,44 +1,34 @@
-# Wolverines Fitness Studio - Vite + Tailwind CSS
+# Wolverines Fitness Studio - Production-Grade React App
 
-A modern, responsive fitness studio website built with React, Vite, and Tailwind CSS.
+A modern, responsive fitness studio website built with React, Vite, and Tailwind CSS using mock data for development.
 
 ## 🚀 Features
 
+### **Frontend (React + Vite + Tailwind)**
 - **Modern Tech Stack**: Built with Vite for fast development and optimized builds
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development
 - **Responsive Design**: Mobile-first approach ensuring great experience on all devices
-- **Component-Based**: Modular React components for easy maintenance
+- **Component-Based**: Modular React components with reusable UI elements
 - **Performance Optimized**: Fast loading times and smooth animations
+- **Production-Grade Structure**: Organized codebase following best practices
+- **Mock Data**: Comprehensive mock data for all sections without backend dependency
 
-## 🎨 Design & Styling
-
-- **Color Scheme**: 
-  - Primary: Harvest Gold (#EAA620)
-  - Secondary: Naples Yellow (#F3CE4D)
-  - Dark: Black variants (#000000, #030402)
-  - Background: Snow (#FCF8F8)
-- **Typography**: Oswald for headings, Open Sans for body text
-- **Custom Animations**: Smooth transitions and hover effects
-
-## 📦 Project Structure
+## 📁 Project Structure
 
 ```
-src/
-├── components/
-│   ├── Navbar.jsx
-│   ├── Hero.jsx
-│   ├── About.jsx
-│   ├── TrainingTypes.jsx
-│   ├── Trainers.jsx
-│   ├── Gallery.jsx
-│   ├── Testimonials.jsx
-│   ├── Pricing.jsx
-│   ├── Map.jsx
-│   ├── Contact.jsx
-│   └── Footer.jsx
-├── App.jsx
-├── main.jsx
-└── index.css
+├── src/
+│   ├── components/          # React components
+│   │   ├── ui/             # Reusable UI components
+│   │   ├── forms/          # Form components
+│   │   ├── common/         # Common components
+│   │   └── index.js        # Component exports
+│   ├── hooks/              # Custom React hooks
+│   ├── utils/              # Utility functions
+│   ├── config/             # Configuration files
+│   ├── data/               # Mock data for all sections
+│   └── App.jsx             # Main App component
+├── public/assests/         # Static assets
+└── docs/                   # Documentation
 ```
 
 ## 🛠️ Development
@@ -47,46 +37,87 @@ src/
 - Node.js (v16 or higher)
 - npm or yarn
 
-### Installation
+### Setup & Run
 ```bash
+# Install dependencies
 npm install
-```
 
-### Development Server
-```bash
+# Start development server
 npm run dev
-```
 
-### Build for Production
-```bash
+# Build for production
 npm run build
-```
 
-### Preview Production Build
-```bash
+# Preview production build
 npm run preview
 ```
 
-## 🎯 Key Sections
+## 🎨 Design & Styling
 
-1. **Hero Section**: Eye-catching banner with call-to-action buttons
-2. **About**: Information about the gym and its features
-3. **Training Programs**: Six different training types with detailed features
-4. **Trainers**: Meet the certified professional trainers
-5. **Gallery**: Filterable image and video gallery
-6. **Testimonials**: Customer success stories with ratings
-7. **Pricing**: Three membership tiers with detailed features
-8. **Location**: Interactive map and contact information
-9. **Contact**: Contact form and business information
+### **Color Scheme**
+- **Primary**: Harvest Gold (#EAA620)
+- **Secondary**: Naples Yellow (#F3CE4D)
+- **Dark**: Black variants (#000000, #030402)
+- **Background**: Snow (#FCF8F8)
 
-## 🎨 Tailwind CSS Customization
+### **Typography**
+- **Headings**: Oswald (Bold, Uppercase)
+- **Body**: Open Sans (Regular)
 
-The project includes custom Tailwind configuration with:
-- Custom colors matching the brand palette
-- Custom font families (Oswald, Open Sans)
-- Custom gradient backgrounds
-- Custom animations and keyframes
-- Responsive breakpoints
+### **Components**
+- Reusable UI components in `src/components/ui/`
+- Consistent styling with Tailwind utilities
+- Responsive design patterns
+- Smooth animations and transitions
+
+## 🔧 Key Improvements Made
+
+### **1. Production-Grade Structure**
+- ✅ Organized component hierarchy
+- ✅ Reusable UI components
+- ✅ Custom hooks for common functionality
+- ✅ Utility functions and helpers
+- ✅ Configuration management
+- ✅ Environment variable setup
+
+### **2. Fixed Issues**
+- ✅ **Logo Path Fixed**: Corrected navbar logo path to `/assests/logo/gym logo-1.png`
+- ✅ **Import Organization**: Clean barrel exports for components
+- ✅ **Code Structure**: Separated concerns properly
+- ✅ **Performance**: Optimized with custom hooks
+
+### **3. Enhanced Components**
+- ✅ **Button Component**: Reusable with variants and sizes
+- ✅ **Card Component**: Flexible card layouts
+- ✅ **Section Component**: Consistent section wrapper
+- ✅ **SectionTitle Component**: Standardized titles
+
+### **4. Developer Experience**
+- ✅ **Custom Hooks**: `useScrollPosition`, `useLocalStorage`
+- ✅ **Helper Functions**: Scroll, validation, formatting utilities
+- ✅ **Constants**: Centralized configuration
+- ✅ **Mock Data**: Structured development data
+
+## 🚀 Backend API Features
+
+### **Complete Content Management**
+- Hero sections with images and stats
+- About section with features
+- Training programs with categories
+- Trainer profiles with certifications
+- Gallery with image/video upload
+- Customer testimonials with ratings
+- Pricing plans with customization
+- Contact information and settings
+
+### **API Endpoints**
+- `GET/POST/PUT/DELETE /api/hero` - Hero management
+- `GET/POST/PUT/DELETE /api/training` - Training programs
+- `GET/POST/PUT/DELETE /api/trainers` - Trainer profiles
+- `GET/POST/PUT/DELETE /api/gallery` - Gallery management
+- `GET/POST/PUT/DELETE /api/testimonials` - Testimonials
+- `GET/POST/PUT/DELETE /api/pricing` - Pricing plans
+- `GET/PUT /api/settings` - Site settings
 
 ## 📱 Responsive Features
 
@@ -96,26 +127,62 @@ The project includes custom Tailwind configuration with:
 - Touch-friendly interactive elements
 - Optimized images for different screen sizes
 
-## 🚀 Performance Features
+## 🔒 Security & Performance
 
-- Vite's fast HMR (Hot Module Replacement)
-- Optimized production builds
-- Lazy loading for images
-- Efficient CSS with Tailwind's purging
-- Modern JavaScript bundling
+### **Frontend**
+- Environment variable management
+- Optimized bundle sizes
+- Code splitting and lazy loading
+- Image optimization
+- Smooth animations with CSS transitions
 
-## 🔧 Technologies Used
+### **Backend**
+- JWT authentication
+- Input validation and sanitization
+- File upload security
+- Rate limiting and CORS
+- Helmet security headers
 
-- **React 18**: Modern React with hooks
-- **Vite**: Next-generation frontend tooling
-- **Tailwind CSS**: Utility-first CSS framework
-- **PostCSS**: CSS processing
-- **ESLint**: Code linting and formatting
+## 📄 Documentation
 
-## 📄 License
+- `PROJECT_STRUCTURE.md` - Detailed project structure
+- `backend/README.md` - Backend API documentation
+- Component documentation in code
+- Environment setup guides
 
-This project is developed by Anugrah M V.
+## 🚀 Deployment Ready
+
+### **Frontend Deployment**
+- Optimized Vite build
+- Static file serving
+- Environment configuration
+- CDN-ready assets
+
+### **Backend Deployment**
+- Production MongoDB setup
+- Environment variables
+- Process management (PM2)
+- SSL/HTTPS configuration
+
+## 📞 Support
+
+**Default Admin Credentials:**
+- Email: `admin@wolverinesfitness.com`
+- Password: `admin123`
+
+**API Health Check:** `GET /api/health`
 
 ---
 
-Ready to transform your fitness journey? Visit our studio today! 💪
+## 🎯 What's New
+
+✅ **Fixed navbar logo path issue**  
+✅ **Reorganized into production-grade structure**  
+✅ **Added reusable UI components**  
+✅ **Implemented custom hooks**  
+✅ **Created utility functions**  
+✅ **Centralized configuration**  
+✅ **Enhanced developer experience**  
+✅ **Complete backend integration ready**  
+
+**Ready to build amazing fitness experiences! 💪**

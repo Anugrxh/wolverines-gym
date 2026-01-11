@@ -1,13 +1,35 @@
 {
-  "name": "gym-website-vite",
+  "name": "wolverines-fitness-studio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Modern fitness studio website built with React, Vite, and Tailwind CSS",
+  "author": "Anugrah M V",
+  "license": "MIT",
+  "keywords": [
+    "fitness",
+    "gym",
+    "react",
+    "vite",
+    "tailwindcss",
+    "responsive",
+    "modern"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "lint:fix": "eslint . --ext js,jsx --fix",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{js,jsx,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,css,md}\"",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "analyze": "npm run build && npx vite-bundle-analyzer dist/assets/*.js",
+    "clean": "rm -rf dist node_modules/.vite",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -23,8 +45,42 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
     "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.3",
-    "vite": "^5.2.0"
+    "vite": "^5.2.0",
+    "vite-bundle-analyzer": "^0.7.0",
+    "vitest": "^1.4.0",
+    "@vitest/ui": "^1.4.0",
+    "@vitest/coverage-v8": "^1.4.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

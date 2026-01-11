@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center space-x-3">
             <img 
-              src="/gym logo-1.png" 
+              src="/assests/logo/gym logo-1.png" 
               alt="Fitness Studio Logo" 
               className="h-10 w-10 object-contain"
             />

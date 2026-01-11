@@ -1,46 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { testimonialsData } from '../data/mockData';
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  const testimonials = [
-    {
-      id: 1,
-      name: 'Jessica Martinez',
-      role: 'Weight Loss Success',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      text: 'I lost 30 pounds in 6 months! The trainers here are amazing and the community is so supportive. This gym changed my life completely.',
-      rating: 5,
-      result: 'Lost 30 lbs'
-    },
-    {
-      id: 2,
-      name: 'Robert Johnson',
-      role: 'Strength Training',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      text: 'The equipment is top-notch and the trainers really know their stuff. I\'ve gained 15 pounds of muscle in just 4 months.',
-      rating: 5,
-      result: 'Gained 15 lbs muscle'
-    },
-    {
-      id: 3,
-      name: 'Maria Garcia',
-      role: 'Fitness Transformation',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      text: 'From couch potato to marathon runner! The personalized training program helped me achieve goals I never thought possible.',
-      rating: 5,
-      result: 'Marathon Finisher'
-    },
-    {
-      id: 4,
-      name: 'David Wilson',
-      role: 'Athletic Performance',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      text: 'As a professional athlete, I needed specialized training. This gym provided exactly what I needed to take my performance to the next level.',
-      rating: 5,
-      result: 'Pro Athlete'
-    }
-  ];
+  const testimonials = testimonialsData;
 
   useEffect(() => {
     const interval = setInterval(() => {
