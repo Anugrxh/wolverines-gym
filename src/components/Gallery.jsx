@@ -1,77 +1,16 @@
 import React, { useState } from 'react';
+import { galleryData } from '../data/mockData';
+import { GALLERY_CATEGORIES } from '../config/constants';
 
 const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const galleryItems = [
-    {
-      id: 1,
-      type: 'image',
-      category: 'equipment',
-      src: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      title: 'Modern Equipment'
-    },
-    {
-      id: 2,
-      type: 'video',
-      category: 'training',
-      src: 'https://player.vimeo.com/video/76979871',
-      thumbnail: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      title: 'Training Session'
-    },
-    {
-      id: 3,
-      type: 'image',
-      category: 'facility',
-      src: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      title: 'Gym Interior'
-    },
-    {
-      id: 4,
-      type: 'image',
-      category: 'training',
-      src: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      title: 'Personal Training'
-    },
-    {
-      id: 5,
-      type: 'video',
-      category: 'classes',
-      src: 'https://player.vimeo.com/video/76979871',
-      thumbnail: 'https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      title: 'Group Classes'
-    },
-    {
-      id: 6,
-      type: 'image',
-      category: 'equipment',
-      src: 'https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      title: 'Cardio Zone'
-    },
-    {
-      id: 7,
-      type: 'image',
-      category: 'facility',
-      src: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      title: 'Yoga Studio'
-    },
-    {
-      id: 8,
-      type: 'video',
-      category: 'training',
-      src: 'https://player.vimeo.com/video/76979871',
-      thumbnail: 'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      title: 'HIIT Training'
-    }
-  ];
+  const galleryItems = galleryData;
 
-  const filters = [
-    { key: 'all', label: 'All' },
-    { key: 'equipment', label: 'Equipment' },
-    { key: 'training', label: 'Training' },
-    { key: 'facility', label: 'Facility' },
-    { key: 'classes', label: 'Classes' }
-  ];
+  const filters = GALLERY_CATEGORIES.map(category => ({
+    key: category,
+    label: category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ')
+  }));
 
   const filteredItems = activeFilter === 'all' 
     ? galleryItems 

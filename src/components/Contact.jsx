@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { Section, SectionTitle, Button } from './ui';
+import { Input, Select, Textarea } from './forms';
+import { validateForm, contactFormValidation } from '../utils/validation';
+import { CONTACT_INFO } from '../config/constants';
+import { contactData } from '../data/mockData';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,24 +14,49 @@ const Contact = () => {
     message: ''
   });
 
+  const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [submitType, setSubmitType] = useState(''); // 'success' or 'error'
+
+  const serviceOptions = contactData.serviceOptions;
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    // Validate form
+    const validation = validateForm(formData, contactFormValidation);
+    
+    if (!validation.isValid) {
+      setErrors(validation.errors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrors({});
+
+    try {
+      // Simulate form submission (no backend needed)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       setSubmitMessage('Thank you! We\'ll get back to you within 24 hours.');
+      setSubmitType('success');
       setFormData({
         name: '',
         email: '',
@@ -38,191 +68,165 @@ const Contact = () => {
       // Clear success message after 5 seconds
       setTimeout(() => {
         setSubmitMessage('');
+        setSubmitType('');
       }, 5000);
-    }, 1000);
+      
+    } catch (error) {
+      setSubmitMessage('Something went wrong. Please try again.');
+      setSubmitType('error');
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => {
+        setSubmitMessage('');
+        setSubmitType('');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="contact" className="section bg-snow">
-      <div className="container">
-        <h2 className="section-title">Get Started Today</h2>
-        <p className="section-subtitle">
-          Ready to transform your life? Contact us to schedule your free consultation
-        </p>
-        
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="font-oswald font-bold text-2xl mb-6 text-black-2">Why Choose Us?</h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <span className="text-3xl">🎯</span>
+    <Section id="contact" background="default">
+      <SectionTitle 
+        title={contactData.title}
+        subtitle={contactData.subtitle}
+      />
+      
+      <div className="grid lg:grid-cols-2 gap-12">
+        {/* Benefits Section */}
+        <div className="space-y-8">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h3 className="font-oswald font-bold text-2xl mb-6 text-black-2">Why Choose Us?</h3>
+            <div className="space-y-6">
+              {contactData.benefits.map((benefit, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <span className="text-3xl">{benefit.icon}</span>
                   <div>
                     <h4 className="font-oswald font-semibold text-lg mb-2 text-black-2">
-                      Personalized Approach
+                      {benefit.title}
                     </h4>
-                    <p className="text-gray-600">
-                      Every program is tailored to your specific goals and fitness level
-                    </p>
+                    <p className="text-gray-600">{benefit.description}</p>
                   </div>
                 </div>
-                
-                <div className="flex items-start space-x-4">
-                  <span className="text-3xl">🏆</span>
-                  <div>
-                    <h4 className="font-oswald font-semibold text-lg mb-2 text-black-2">
-                      Proven Results
-                    </h4>
-                    <p className="text-gray-600">
-                      500+ success stories and a 98% member satisfaction rate
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <span className="text-3xl">👥</span>
-                  <div>
-                    <h4 className="font-oswald font-semibold text-lg mb-2 text-black-2">
-                      Expert Support
-                    </h4>
-                    <p className="text-gray-600">
-                      Certified trainers and nutritionists guide you every step
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <span className="text-3xl">⚡</span>
-                  <div>
-                    <h4 className="font-oswald font-semibold text-lg mb-2 text-black-2">
-                      Modern Facility
-                    </h4>
-                    <p className="text-gray-600">
-                      State-of-the-art equipment and clean, spacious environment
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="font-oswald font-bold text-2xl mb-6 text-black-2">Get In Touch</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <span className="text-2xl">📞</span>
-                  <div>
-                    <strong className="text-black-2">Call Us</strong>
-                    <p className="text-gray-600">(555) 123-4567</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <span className="text-2xl">✉️</span>
-                  <div>
-                    <strong className="text-black-2">Email Us</strong>
-                    <p className="text-gray-600">info@fitnessstudio.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <span className="text-2xl">💬</span>
-                  <div>
-                    <strong className="text-black-2">Live Chat</strong>
-                    <p className="text-gray-600">Available 9 AM - 9 PM</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           
+          {/* Contact Methods */}
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <form onSubmit={handleSubmit}>
-              <h3 className="font-oswald font-bold text-2xl mb-6 text-black-2">
-                Start Your Free Consultation
-              </h3>
-              
-              {submitMessage && (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                  {submitMessage}
+            <h3 className="font-oswald font-bold text-2xl mb-6 text-black-2">Get In Touch</h3>
+            <div className="space-y-4">
+              {contactData.contactMethods.map((method, index) => (
+                <div key={index} className="flex items-center space-x-4">
+                  <span className="text-2xl">{method.icon}</span>
+                  <div>
+                    <strong className="text-black-2">{method.title}</strong>
+                    <p className="text-gray-600">{method.content}</p>
+                  </div>
                 </div>
-              )}
-              
-              <div className="space-y-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Full Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-harvest-gold transition-colors"
-                />
-                
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email Address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-harvest-gold transition-colors"
-                />
-                
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Your Phone Number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-harvest-gold transition-colors"
-                />
-                
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-harvest-gold transition-colors"
-                >
-                  <option value="">Select Your Interest</option>
-                  <option value="weight-loss">Weight Loss Program</option>
-                  <option value="muscle-building">Muscle Building</option>
-                  <option value="functional-fitness">Functional Fitness</option>
-                  <option value="hiit-training">HIIT Training</option>
-                  <option value="yoga">Yoga & Flexibility</option>
-                  <option value="athletic-performance">Athletic Performance</option>
-                  <option value="personal-training">Personal Training</option>
-                  <option value="membership">General Membership</option>
-                </select>
-                
-                <textarea
-                  name="message"
-                  placeholder="Tell us about your fitness goals..."
-                  rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-harvest-gold transition-colors resize-none"
-                ></textarea>
-                
-                <button 
-                  type="submit" 
-                  className="btn w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Sending...' : 'Get My Free Consultation'}
-                </button>
-                
-                <p className="text-sm text-gray-500 text-center">
-                  By submitting this form, you agree to receive communications from us. 
-                  We respect your privacy and will never share your information.
-                </p>
-              </div>
-            </form>
+              ))}
+            </div>
           </div>
         </div>
+        
+        {/* Contact Form */}
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <form onSubmit={handleSubmit} noValidate>
+            <h3 className="font-oswald font-bold text-2xl mb-6 text-black-2">
+              Start Your Free Consultation
+            </h3>
+            
+            {/* Success/Error Message */}
+            {submitMessage && (
+              <div className={`mb-6 p-4 rounded-lg ${
+                submitType === 'success' 
+                  ? 'bg-green-100 border border-green-400 text-green-700' 
+                  : 'bg-red-100 border border-red-400 text-red-700'
+              }`}>
+                <div className="flex items-center">
+                  <span className="mr-2">
+                    {submitType === 'success' ? '✅' : '❌'}
+                  </span>
+                  {submitMessage}
+                </div>
+              </div>
+            )}
+            
+            <div className="space-y-6">
+              <Input
+                type="text"
+                name="name"
+                label="Full Name"
+                placeholder="Your Full Name"
+                value={formData.name}
+                onChange={handleChange}
+                error={errors.name}
+                required
+              />
+              
+              <Input
+                type="email"
+                name="email"
+                label="Email Address"
+                placeholder="Your Email Address"
+                value={formData.email}
+                onChange={handleChange}
+                error={errors.email}
+                required
+              />
+              
+              <Input
+                type="tel"
+                name="phone"
+                label="Phone Number"
+                placeholder="Your Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                error={errors.phone}
+                required
+              />
+              
+              <Select
+                name="service"
+                label="Service Interest"
+                placeholder="Select Your Interest"
+                value={formData.service}
+                onChange={handleChange}
+                options={serviceOptions}
+                error={errors.service}
+                required
+              />
+              
+              <Textarea
+                name="message"
+                label="Message"
+                placeholder="Tell us about your fitness goals..."
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                error={errors.message}
+                required
+              />
+              
+              <Button
+                type="submit"
+                variant="primary"
+                size="lg"
+                disabled={isSubmitting}
+                className="w-full"
+              >
+                {isSubmitting ? 'Sending...' : 'Get My Free Consultation'}
+              </Button>
+              
+              <p className="text-sm text-gray-500 text-center">
+                By submitting this form, you agree to receive communications from us. 
+                We respect your privacy and will never share your information.
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
-    </section>
+    </Section>
   );
 };
 
