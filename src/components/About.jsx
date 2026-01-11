@@ -34,7 +34,7 @@ const About = () => {
                     Modern Equipment
                   </h4>
                   <p className="text-gray-600">
-                    Latest fitness technology and equipment for optimal results
+                    Latest equipment for optimal results
                   </p>
                 </div>
               </div>
@@ -55,10 +55,10 @@ const About = () => {
                 <div className="text-4xl">🕐</div>
                 <div>
                   <h4 className="font-oswald font-semibold text-lg mb-2 text-black-2">
-                    Flexible Hours
+                    Friendly Timings
                   </h4>
                   <p className="text-gray-600">
-                    24/7 access to fit your busy lifestyle
+                    Morning and Evening slots to fit your schedule
                   </p>
                 </div>
               </div>
@@ -74,7 +74,7 @@ const About = () => {
             <div className="absolute inset-0 bg-gradient-primary opacity-20 rounded-lg"></div>
             <div className="absolute bottom-6 left-6 text-white">
               <h3 className="font-oswald font-bold text-2xl mb-2">Join Our Community</h3>
-              <p className="text-lg">500+ Members Strong</p>
+            
             </div>
           </div>
         </div>
