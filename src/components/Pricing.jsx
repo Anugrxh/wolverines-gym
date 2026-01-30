@@ -65,7 +65,7 @@ const Pricing = () => {
         
         <div className="text-center mt-12 max-w-2xl mx-auto">
           <p className="text-gray-700 mb-2">
-            <strong>No commitment required.</strong> Cancel anytime. All plans include a 7-day free trial.
+            <strong>No commitment required.</strong> Cancel anytime. All plans include a 3-day free trial.
           </p>
           <p className="text-gray-600">
             Need a custom plan? <a href="#contact" className="text-harvest-gold hover:underline">Contact us</a> for corporate or family packages.
