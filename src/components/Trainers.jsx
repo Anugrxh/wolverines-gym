@@ -9,7 +9,7 @@ const Trainers = () => {
       <div className="container">
         <h2 className="section-title">Meet Our Trainers</h2>
         <p className="section-subtitle">
-          Our certified professionals are here to guide you every step of the way
+          we have the best trainers available for you
         </p>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
